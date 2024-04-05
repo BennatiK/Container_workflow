@@ -1,0 +1,16 @@
+#Container file to create and run ftp server within MTE-VOD environment
+FROM registry.access.redhat.com/rhel8/toolbox
+#installing ssh session manager
+RUN dnf install -y vsftpd && dnf install -y telnet && dnf install -y  nmap
+RUN mkdir /var/run/sshd
+
+USER root
+
+#Copying sshd config to host container
+COPY vsftpd.conf /etc/vsftpd
+COPY ftpusers /etc/vsftpd
+COPY user_list /etc/vsftpd
+
+#exposing ports
+EXPOSE 22
+CMD ["/usr/sbin/vsftpd", "-D"]
