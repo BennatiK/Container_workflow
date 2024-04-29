@@ -1,0 +1,16 @@
+#Container file to create and run ftp server within MTE-VOD environment
+FROM docker.io/bkapowo/mte-vod:latest
+#copying files to host
+COPY run-vsftpd.sh /usr/sbin/
+
+#expose sftp ports
+EXPOSE 22 \
+       21 \
+       21100
+
+#executing script for user creation
+CMD ["/usr/sbin/run-vsftpd.sh"]
+
+#Changig diretcory
+WORKDIR /mnt
+

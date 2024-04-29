@@ -1,0 +1,7 @@
+[MediaArea]
+name=MediaArea.net SARL software repository for rpm based distributions - $ARCH
+baseurl=https://mediaarea.net/repo/rpm/releases/CentOS_8/x86_64/
+enabled=1
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/GPG-KEY-MediaArea
+
